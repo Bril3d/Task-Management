@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Task</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.4.1/c
+ss/all.css" integrity="sha384-
+5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2
+R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" th:href="@{/}">Task Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{/}">Task List</a>
+      </li>
+    </ul>
+    <div class="text-right">
+        <a class="nav-link text-right" th:href="@{/logout}">Logout</a>
+    </div>
+  </div>
+</nav>
+<h1  class="my-3 text-primary">Add Task</h1>
+<form th:action="@{/addTask}"
+th:object="${task}" method="post">
+<div class="mb-3">
+<label for="titre">Title :</label>
+<input type="text" th:field="*{titre}" id="titre"/>
+</div>
+<div class="mb-3">
+<label for="auteur">Description :</label>
+<input type="text" th:field="*{description}"
+id="auteur"/>
+</div>
+<div class="mb-3">
+<label for="anneePublication">Date Echeance
+:</label>
+<input type="date" th:field="*{dateEcheance}"
+id="anneePublication"/>
+</div>
+<div class="mb-3">
+<label for="etat">State
+:</label>
+<select th:field="*{etat}" name="etat" id="etat">
+  <option value="Done">Done</option>
+  <option value="Pending">Pending</option>
+  <option value="Declined">Declined</option>
+</select>
+</div>
+<div>
+<button class="bg-success px-3 py-1 text-light rounded" type="submit">Add</button>
+</div>
+</form>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

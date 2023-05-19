@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Editer livre</title>
+<link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.
+css"integrity="sha384-
+MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigi
+n="anonymous">
+<link rel="stylesheet"
+href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+integrity="sha384-
+5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+crossorigin="anonymous">
+</head>
+<body>
+<h1>Editer livre</h1>
+<form th:action="@{/update}" th:object="${livre}" method="post">
+<input type="hidden" th:field="*{id}"/>
+<div>
+<label for="titre">Titre :</label>
+<input type="text" th:field="*{titre}" id="titre"/>
+</div>
+<div>
+<label for="auteur">description :</label>
+<input type="text" th:field="*{description}" id="auteur"/>
+</div>
+<div>
+<label for="anneePublication">dateEcheance :</label>
+<input type="number" th:field="*{dateEcheance}" id="anneePublication"/>
+</div>
+<div>
+<label for="anneePublication">etat :</label>
+<input type="text" th:field="*{etat}" id="anneePublication"/>
+</div>
+<div>
+<button type="submit">Enregistrer</button>
+</div>
+</form>
+</body>
+</html>

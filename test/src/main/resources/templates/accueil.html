@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste des livres</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigin="anonymous">
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
+</head>
+<body>
+<div class="card">
+<div class="card-body">
+<div class="col-md-10">
+<h1>Liste des tache</h1>
+<table class="table">
+<thead>
+<tr>
+<th>Titre</th>
+<th>description</th>
+<th>dateEcheance</th>
+<th>etat</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="livre : ${livres}">
+<td th:text="${livre.titre}"></td>
+<td th:text="${livre.description}"></td>
+<td th:text="${livre.dateEcheance}"></td>
+<td th:text="${livre.etat}"></td>
+<td>
+<a th:href="@{/editerLivre/{id}(id=${livre.id})}">Modifier</a>
+<a th:href="@{/supprimerLivre/{id}(id=${livre.id})}">Supprimer</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-group col-md-8"></div>
+<a th:href="@{/ajouterLivre}">Ajouter un livre</a>
+</body>
+</html>
