@@ -50,7 +50,7 @@ R5Jz6kr4abQsz" crossorigin="anonymous">
 <td th:text="${task.dateEcheance}"></td>
 <td th:text="${task.etat}"></td>
 <td>
-<a th:href="@{/doneTask/{id}(id=${task.id})}" type="button" class="btn btn-primary">Done</a>
+<button th:onclick="|window.location.href='/doneTask/' + ${task.id}|" th:disabled="${task.etat == 'Done'}" type="button" class="btn btn-primary">Done</button>
 <a th:href="@{/updateTask/{id}(id=${task.id})}" type="button" class="btn btn-warning text-light">Update</a>
 <a th:href="@{/deleteTask/{id}(id=${task.id})}" type="button" class="btn btn-danger">Delete</a>
 </td>
