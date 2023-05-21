@@ -46,7 +46,11 @@ R5Jz6kr4abQsz" crossorigin="anonymous">
 </div>
 <div class="mb-3">
 <label for="anneePublication">State :</label>
-<input type="text" th:field="*{etat}" id="anneePublication"/>
+<select th:field="*{etat}" name="etat" id="etat">
+  <option value="Done">Done</option>
+  <option value="Pending">Pending</option>
+  <option value="Declined">Declined</option>
+</select>
 </div>
 <div class="mb-3">
 <button class="bg-success px-3 py-1 text-light rounded" type="submit">Save</button>
